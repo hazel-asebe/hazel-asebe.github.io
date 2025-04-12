@@ -10,13 +10,13 @@
   <!-- 上部ナビメニュー -->
   <header class="topnav" id="sidebar"></header>
 
-  <div class="container">
-    <!-- 左メニュー -->
-    <nav class="sidebar" id="sidebar"></nav>
-
-    <!-- 右：画像ギャラリー -->
-    <main class="gallery" id="gallery"></main>
-  </div>
+  <!-- メインコンテンツ -->
+  <main class="gallery">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Typeを検索（例: かわいい, 風景）">
+    </div>
+    <div id="gallery"></div>
+  </main>
 
   <!-- PapaParse CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
