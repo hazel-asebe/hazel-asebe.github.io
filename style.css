@@ -1,79 +1,37 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-  overflow-x: hidden; /* ← 横スクロール抑制 */
+/* 上部ナビメニュー */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #007acc;
+  color: white;
+  display: flex;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  overflow-x: auto;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
+.topnav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.topnav a:hover {
+  text-decoration: underline;
+}
+
+/* ギャラリー全体 */
+.gallery {
+  padding-top: 4.5rem; /* ← ← 上部固定メニューの高さ分空ける */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #f9f9f9;
   min-height: 100vh;
 }
 
-/* 左サイドバー（PC） */
-.sidebar {
-  width: 200px;
-  background: #007acc;
-  color: white;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
-
-/* メインギャラリー */
-.gallery {
-  flex-grow: 1;
-  padding: 1rem;
-  background-color: #f9f9f9;
-}
-
-/* 検索欄 */
-.search-bar {
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-}
-
-.search-bar input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* 各カテゴリ */
-.category-section {
-  margin-bottom: 2rem;
-}
-
-/* 画像たち */
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.image-container img {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-}
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .image-container {
-    justify-content: center;
-  }
-}
+/* 既存の画像スタイルなどはそのままでOK */
