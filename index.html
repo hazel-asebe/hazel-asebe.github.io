@@ -3,34 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>サムネイルギャラリー</title>
+  <title>カテゴリ切り替えギャラリー</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>サムネイルギャラリー</h1>
+  <h1>カテゴリ別サムネイルギャラリー</h1>
 
-  <section>
-    <h2>0083</h2>
-    <div class="gallery">
+  <div class="category">
+    <button onclick="toggleSection('animals')">🐶 Animals</button>
+    <div id="animals" class="gallery hidden">
       <img src="images/0083/FQ01-001.jpg" alt="FQ01-001" />
       <img src="images/0083/FQ01-036.jpg" alt="FQ01-036" />
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>SeedDestiny</h2>
-    <div class="gallery">
-      <img src="images/SeedDestiny/mountain.jpg" alt="Mountain" />
-      <img src="images/SeedDestiny/river.jpg" alt="River" />
+  <div class="category">
+    <button onclick="toggleSection('nature')">🌿 Nature</button>
+    <div id="nature" class="gallery hidden">
+      <img src="images/nature/mountain.jpg" alt="Mountain" />
+      <img src="images/nature/river.jpg" alt="River" />
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>People</h2>
-    <div class="gallery">
+  <div class="category">
+    <button onclick="toggleSection('people')">🧑 People</button>
+    <div id="people" class="gallery hidden">
       <img src="images/people/person1.jpg" alt="Person 1" />
       <img src="images/people/person2.jpg" alt="Person 2" />
     </div>
-  </section>
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle("hidden");
+    }
+  </script>
 </body>
 </html>
