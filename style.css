@@ -3,7 +3,7 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 2rem;
-  background-color: #f0f0f0;
+  background-color: #f9f9f9;
 }
 
 h1 {
@@ -11,45 +11,50 @@ h1 {
   margin-bottom: 2rem;
 }
 
-.category {
-  margin-bottom: 2rem;
-}
-
-button {
-  background-color: #007acc;
-  color: white;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: none;
+.accordion-item {
+  border: 1px solid #ccc;
   border-radius: 8px;
-  cursor: pointer;
   margin-bottom: 1rem;
-  transition: background-color 0.2s;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-button:hover {
+.accordion-header {
+  background-color: #007acc;
+  color: #fff;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
   background-color: #005f99;
 }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.accordion-header.active {
+  background-color: #005f99;
 }
 
-.gallery img {
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 1rem;
+  background-color: #fefefe;
+}
+
+.accordion-content img {
   width: 150px;
   height: 150px;
   object-fit: cover;
+  margin: 1rem 1rem 1rem 0;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
   transition: transform 0.2s ease;
 }
 
-.gallery img:hover {
+.accordion-content img:hover {
   transform: scale(1.05);
-}
-
-.hidden {
-  display: none;
 }
