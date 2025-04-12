@@ -1,13 +1,16 @@
 body {
   margin: 0;
   font-family: sans-serif;
+  overflow-x: hidden; /* ← 横スクロール抑制 */
 }
 
 .container {
   display: flex;
+  flex-direction: row;
   min-height: 100vh;
 }
 
+/* 左サイドバー（PC） */
 .sidebar {
   width: 200px;
   background: #007acc;
@@ -18,36 +21,31 @@ body {
   height: 100vh;
 }
 
-.sidebar a {
-  display: block;
-  margin-bottom: 1rem;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.sidebar a:hover {
-  background: #005f99;
-  padding-left: 0.5rem;
-}
-
+/* メインギャラリー */
 .gallery {
   flex-grow: 1;
-  padding: 2rem;
+  padding: 1rem;
   background-color: #f9f9f9;
 }
 
-.category-section {
-  margin-bottom: 3rem;
-}
-
-.category-section h2 {
-  font-size: 1.5rem;
-  border-bottom: 2px solid #ccc;
+/* 検索欄 */
+.search-bar {
   margin-bottom: 1rem;
+  padding: 0.5rem;
 }
 
+.search-bar input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 各カテゴリ */
+.category-section {
+  margin-bottom: 2rem;
+}
+
+/* 画像たち */
 .image-container {
   display: flex;
   flex-wrap: wrap;
@@ -55,26 +53,27 @@ body {
 }
 
 .image-container img {
-  width: 80px;
-  height: 120px;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
-.image-container img:hover {
-  transform: scale(1.05);
-}
-.search-bar {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-}
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 
-.search-bar input {
-  width: 100%;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #aaa;
-  border-radius: 6px;
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .image-container {
+    justify-content: center;
+  }
 }
