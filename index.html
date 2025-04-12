@@ -1,18 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カテゴリ付きギャラリー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <div class="container">
-    <!-- 左：カテゴリメニュー -->
+    <!-- 左メニュー -->
     <nav class="sidebar" id="sidebar"></nav>
 
-    <!-- 右：検索 + ギャラリー -->
-    <main class="gallery">
-      <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Typeを検索（例: かわいい, 風景）">
-      </div>
-      <div id="gallery"></div>
-    </main>
+    <!-- 右：画像ギャラリー -->
+    <main class="gallery" id="gallery"></main>
   </div>
 
   <!-- PapaParse CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   <script src="script.js"></script>
 </body>
+</html>
