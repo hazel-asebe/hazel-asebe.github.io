@@ -1,3 +1,88 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background: #007acc;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar a {
+  display: block;
+  margin-bottom: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background: #005f99;
+  padding-left: 0.5rem;
+}
+
+/* ギャラリー全体 */
+.gallery {
+  padding-top: 4.5rem; /* ← ← 上部固定メニューの高さ分空ける */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.category-section {
+  margin-bottom: 3rem;
+}
+
+.category-section h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.image-container img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+
+.search-bar {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
 /* 上部ナビメニュー */
 .topnav {
   position: fixed;
@@ -24,14 +109,3 @@
 .topnav a:hover {
   text-decoration: underline;
 }
-
-/* ギャラリー全体 */
-.gallery {
-  padding-top: 4.5rem; /* ← ← 上部固定メニューの高さ分空ける */
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-}
-
-/* 既存の画像スタイルなどはそのままでOK */
