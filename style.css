@@ -46,8 +46,8 @@ h1 {
 }
 
 .accordion-content img {
-  width: 100px;
-  height: 150px;
+  width: 80px;
+  height: 120px;
   object-fit: cover;
   margin: 1rem 1rem 1rem 0;
   border-radius: 8px;
