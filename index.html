@@ -2,24 +2,25 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>カテゴリ付きギャラリー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ギャラリーサイト</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <!-- 上部ナビメニュー -->
-  <header class="topnav" id="sidebar"></header>
+  <!-- 上部固定メニュー -->
+  <header id="header">
+    <h1>ギャラリーサイト</h1>
+    <input type="text" id="searchInput" placeholder="Typeで検索...">
+  </header>
 
-  <!-- メインコンテンツ -->
-  <main class="gallery">
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Typeを検索（例: かわいい, 風景）">
-    </div>
-    <div id="gallery"></div>
-  </main>
+  <!-- サイドバー（カテゴリ一覧） -->
+  <nav id="sidebar"></nav>
 
-  <!-- PapaParse CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <script src="script.js"></script>
+  <!-- メインギャラリー表示 -->
+  <main id="gallery"></main>
+
+  <!-- スクリプト読み込み -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script> <!-- CSVパーサー -->
+  <script src="script.js"></script> <!-- 自作スクリプト -->
 </body>
 </html>
