@@ -90,14 +90,14 @@ main#gallery {
 
 /* 画像コンテナ（アコーディオン内） */
 .image-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 5px;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  overflow: hidden;
-}
-
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5列固定 */
+    gap: 10px;
+    padding: 15px;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    overflow: hidden;
+  }
+  
 /* 画像設定 */
 .image-container img {
   width: 60px;
