@@ -1,143 +1,146 @@
 /* リセットCSS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* 全体設定 */
-body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* ヘッダー（上部固定） */
-header#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #0077cc;
-  color: #fff;
-  padding: 10px 20px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-header h1 {
-  font-size: 1.5rem;
-}
-
-header input#searchInput {
-  padding: 5px 10px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-}
-
-/* サイドバー（上部ナビ） */
-nav#sidebar {
-  margin-top: 70px; /* ヘッダーの高さに合わせる */
-  background: #eee;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-nav#sidebar a {
-  text-decoration: none;
-  color: #333;
-  background: #ddd;
-  padding: 5px 10px;
-  border-radius: 5px;
-  transition: background 0.3s;
-}
-
-nav#sidebar a:hover {
-  background: #ccc;
-}
-
-/* メインギャラリー */
-main#gallery {
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* カテゴリセクション */
-.category-section {
-  margin-bottom: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-/* カテゴリヘッダー（アコーディオンボタン） */
-.category-section h2 {
-  background: #0077cc;
-  color: white;
-  padding: 15px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 1.2rem;
-}
-
-/* 画像コンテナ（アコーディオン内） */
-.image-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 全体基本設定 */
+  body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* 横スクロールを防止 */
+  }
+  
+  /* ヘッダー（上部固定） */
+  header#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0077cc;
+    color: #fff;
+    padding: 10px 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  header input#searchInput {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  /* ナビゲーションバー（カテゴリリンク） */
+  nav#sidebar {
+    margin-top: 70px; /* ヘッダーの高さに合わせる */
+    background: #eee;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  nav#sidebar a {
+    text-decoration: none;
+    color: #333;
+    background: #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    font-weight: bold;
+  }
+  
+  nav#sidebar a:hover {
+    background: #ccc;
+  }
+  
+  /* メインギャラリー */
+  main#gallery {
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  /* カテゴリセクション */
+  .category-section {
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* カテゴリ見出し（アコーディオンボタン） */
+  .category-section h2 {
+    background: #0077cc;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.3rem;
+  }
+  
+  /* 画像コンテナ */
+  .image-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* 5列固定 */
     gap: 10px;
     padding: 15px;
-    transition: max-height 0.4s ease, opacity 0.4s ease;
-    overflow: hidden;
+    transition: opacity 0.4s ease;
   }
   
-/* 画像設定 */
-.image-container img {
-    width: 100%;
-    aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 5px;
-  transition: transform 0.3s;
-}
-
-.image-container img:hover {
-  transform: scale(1.05);
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-  .image-container {
-        grid-template-columns: repeat(5, 1fr); /* 5列に変更 */
+  /* 画像コンテナの開閉制御 */
+  .image-container.closed {
+    display: none;
   }
+  
+  .image-container.open {
+    display: grid;
+  }
+  
+  /* 各画像設定 */
   .image-container img {
-    width: 20%;
-    aspect-ratio: 2/3;
+    width: 100%;
+    aspect-ratio: 1/1; /* 正方形に揃える */
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s;
   }
-
-  header h1 {
-    font-size: 1.2rem;
+  
+  .image-container img:hover {
+    transform: scale(1.05);
   }
-
-  header input#searchInput {
-    width: 50%;
+  
+  /* スマホ・タブレット対応 */
+  @media (max-width: 768px) {
+    .image-container {
+      grid-template-columns: repeat(3, 1fr); /* タブレットは3列 */
+    }
+  
+    header input#searchInput {
+      width: 150px;
+    }
   }
-}
-
-/* アコーディオン開閉用（JavaScript側で開閉制御） */
-.image-container.closed {
-  max-height: 0;
-  opacity: 0;
-  padding: 0 15px;
-}
-
-.image-container.open {
-  max-height: 1000px; /* 十分に大きい値を指定 */
-  opacity: 1;
-}
+  
+  @media (max-width: 480px) {
+    .image-container {
+      grid-template-columns: repeat(2, 1fr); /* スマホは2列 */
+    }
+  
+    header h1 {
+      font-size: 1.2rem;
+    }
+  }
+  
