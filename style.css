@@ -1,111 +1,140 @@
+/* リセットCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全体設定 */
 body {
-    margin: 0;
-    font-family: sans-serif;
-  }
-  
-  .container {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background: #007acc;
-    color: white;
-    padding: 1rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-  }
-  
-  .sidebar a {
-    display: block;
-    margin-bottom: 1rem;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-  }
-  
-  .sidebar a:hover {
-    background: #005f99;
-    padding-left: 0.5rem;
-  }
-  
-  /* ギャラリー全体 */
-  .gallery {
-    padding-top: 4.5rem; /* ← ← 上部固定メニューの高さ分空ける */
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-  }
-  
-  .category-section {
-    margin-bottom: 3rem;
-  }
-  
-  .category-section h2 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid #ccc;
-    margin-bottom: 1rem;
-  }
-  
-  .image-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ヘッダー（上部固定） */
+header#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0077cc;
+  color: #fff;
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header input#searchInput {
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+/* サイドバー（上部ナビ） */
+nav#sidebar {
+  margin-top: 70px; /* ヘッダーの高さに合わせる */
+  background: #eee;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+nav#sidebar a {
+  text-decoration: none;
+  color: #333;
+  background: #ddd;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+nav#sidebar a:hover {
+  background: #ccc;
+}
+
+/* メインギャラリー */
+main#gallery {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* カテゴリセクション */
+.category-section {
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* カテゴリヘッダー（アコーディオンボタン） */
+.category-section h2 {
+  background: #0077cc;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.2rem;
+}
+
+/* 画像コンテナ（アコーディオン内） */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 5px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
+}
+
+/* 画像設定 */
+.image-container img {
+  width: 60px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
   .image-container img {
-    width: 80px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    width: 60px;
+    height: 90px;
   }
-  
-  .image-container img:hover {
-    transform: scale(1.05);
+
+  header h1 {
+    font-size: 1.2rem;
   }
-  
-  .search-bar {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
+
+  header input#searchInput {
+    width: 50%;
   }
-  
-  .search-bar input {
-    width: 100%;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    border: 1px solid #aaa;
-    border-radius: 6px;
-  }
-  
-  /* 上部ナビメニュー */
-  .topnav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #007acc;
-    color: white;
-    display: flex;
-    gap: 1rem;
-    padding: 0.8rem 1rem;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow-x: auto;
-  }
-  
-  .topnav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-  
-  .topnav a:hover {
-    text-decoration: underline;
-  }
+}
+
+/* アコーディオン開閉用（JavaScript側で開閉制御） */
+.image-container.closed {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 15px;
+}
+
+.image-container.open {
+  max-height: 1000px; /* 十分に大きい値を指定 */
+  opacity: 1;
+}
