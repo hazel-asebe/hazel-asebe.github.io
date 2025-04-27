@@ -100,7 +100,7 @@ main#gallery {
   
 /* 画像設定 */
 .image-container img {
-    width: 100%;
+    width: 40%;
     aspect-ratio: 2/3;
   object-fit: cover;
   border-radius: 5px;
@@ -117,7 +117,7 @@ main#gallery {
         grid-template-columns: repeat(5, 1fr); /* 5列に変更 */
   }
   .image-container img {
-    width: 100%;
+    width: 20%;
     aspect-ratio: 2/3;
   }
 
