@@ -113,6 +113,9 @@ main#gallery {
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+  .image-container {
+        grid-template-columns: repeat(5, 1fr); /* 5列に変更 */
+  }
   .image-container img {
     width: 60px;
     height: 90px;
